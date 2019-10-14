@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Clock</title>
+
+    <style>
+      /* HERE COMES THE STYLE */
+      html,
+      body {
+        /* MAKE CONTENT APPEAR ON THE WHOLE PAGE */
+        height: 100%;
+
+        /* MOVE THE CONTENT TO THE MIDDLE OF THE PAGE */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #clock-app {
+        /* SET THE SIZE OF THE CLOCK */
+        width: 200px;
+        height: 100px;
+
+        /* SET THE BACKGROUND-COLOR OF THE CLOCK */
+        background-color: papayawhip;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERE COMES THE STRUCTURE -->
+    <div id="clock-app"><!-- THE CLOCK --></div>
+  </body>
+
+  <script>
+    // HERE COMES THE SCRIPT
+    console.log(document.getElementById("clock-app"));
+
+    // START THE TIMER
+    const timer = setInterval(() => {
+      document.getElementById(
+        "clock-app"
+      ).innerHTML = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
+    }, 1000); // PRINTS CURRENT SECONDS EVERY 1000 MILISECONDS (1 SECOND)
+
+    // STOP THE TIMER
+    setTimeout(() => {
+      window.clearInterval(timer);
+    }, 5000); // WILL STOP THE TIMER AFTER 5000 MILISECONDS (5 SECONDS)
+  </script>
+</html>
