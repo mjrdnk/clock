@@ -27,6 +27,16 @@
 
         /* SET THE BACKGROUND-COLOR OF THE CLOCK */
         background-color: papayawhip;
+
+        /* ALIGN CLOCK IN THE MIDDLE OF THE CONTAINER */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* STYLE THE CONTENT */
+        font-size: 35px;
+        font-weight: bold;
+        font-family: MONOSPACE;
       }
     </style>
   </head>
@@ -40,16 +50,24 @@
     // HERE COMES THE SCRIPT
     console.log(document.getElementById("clock-app"));
 
-    // START THE TIMER
-    const timer = setInterval(() => {
+    const hours = new Date().getHours();
+    const minutes = new Date().getMinutes();
+    const secons = new Date().getSeconds();
+
+    const startTimer = () => {
+      // FORMATTING THE TIME
+      // ADDS 0 BEFORE THE VALUE IF VALUE IS SMALLER THEN 10 (0,1,2,3,4,5,6,7,8,9)
+      const paddedHours = hours < 10 ? `0${hours}` : hours;
+      const paddedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+      const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+      // APPENDING CLOCK TO THE DOM
       document.getElementById(
         "clock-app"
-      ).innerHTML = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
-    }, 1000); // PRINTS CURRENT SECONDS EVERY 1000 MILISECONDS (1 SECOND)
+      ).innerHTML = `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+    };
 
-    // STOP THE TIMER
-    setTimeout(() => {
-      window.clearInterval(timer);
-    }, 5000); // WILL STOP THE TIMER AFTER 5000 MILISECONDS (5 SECONDS)
+    // START THE TIMER
+    const timer = setInterval(startTimer, 1000); // PRINTS CURRENT SECONDS EVERY 1000 MILISECONDS (1 SECOND)
   </script>
 </html>
