@@ -48,13 +48,11 @@
 
   <script>
     // HERE COMES THE SCRIPT
-    console.log(document.getElementById("clock-app"));
-
-    const hours = new Date().getHours();
-    const minutes = new Date().getMinutes();
-    const secons = new Date().getSeconds();
 
     const startTimer = () => {
+      const hours = new Date().getHours();
+      const minutes = new Date().getMinutes();
+      const seconds = new Date().getSeconds();
       // FORMATTING THE TIME
       // ADDS 0 BEFORE THE VALUE IF VALUE IS SMALLER THEN 10 (0,1,2,3,4,5,6,7,8,9)
       const paddedHours = hours < 10 ? `0${hours}` : hours;
